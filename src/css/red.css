@@ -1,0 +1,146 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Custom CSS Variables */
+    --header-height: 4rem;
+
+    /* CSS Variables for light theme */
+    --background: #ffffff; /* White background */
+    --foreground: #504f4f; /* Black text */
+
+    --card: #ffffff; /* White card background */
+    --card-foreground: #000000; /* Black card text */
+
+    --popover: #ffffff; /* White popover background */
+    --popover-foreground: #000000; /* Black popover text */
+
+    --primary: #f44336; /* Red primary color */
+    --primary-foreground: #ffffff; /* White primary text */
+
+    --secondary: #3b82f6; /* Base blue secondary color */
+    --secondary-foreground: #ffffff; /* White secondary text */
+
+    --muted: #cccccc; /* Light gray muted background */
+    --muted-foreground: #666666; /* Dark gray muted text */
+
+    --accent: #3b82f6; /* Base blue accent background */
+    --accent-foreground: #666666; /* Dark gray accent text */
+
+    --destructive: #f44336; /* Red primary color for destructive actions */
+    --destructive-foreground: #ffffff; /* White destructive text */
+
+    --border: #cccccc; /* Light gray border */
+    --input: #ffffff; /* White input background */
+    --ring: #f44336; /* Red ring color */
+
+    /* Red color variables */
+    --red: #f44336; /* Base red color */
+    --red-foreground: #ffffff; /* White text on red background */
+
+    --red-muted: #ffcccc; /* Light red muted background */
+    --red-muted-foreground: #660000; /* Dark red muted text */
+
+    --red-accent: #ff7961; /* Lighter red accent */
+    --red-accent-foreground: #ffffff; /* White text on red accent */
+
+    --radius: 0.5rem; /* Border radius */
+  }
+
+  .dark {
+    --background: #333333; /* Dark gray background for dark mode */
+    --foreground: #ffffff; /* White text */
+
+    --card: #444444; /* Dark gray card background */
+    --card-foreground: #ffffff; /* White card text */
+
+    --popover: #444444; /* Dark gray popover background */
+    --popover-foreground: #ffffff; /* White popover text */
+
+    --primary: #f44336; /* Red primary color */
+    --primary-foreground: #ffffff; /* White primary text */
+
+    --secondary: #3b82f6; /* Base blue secondary color */
+    --secondary-foreground: #ffffff; /* White secondary text */
+
+    --muted: #666666; /* Dark gray muted background */
+    --muted-foreground: #cccccc; /* Light gray muted text */
+
+    --accent: #3b82f6; /* Base blue accent background */
+    --accent-foreground: #cccccc; /* Light gray accent text */
+
+    --destructive: #f44336; /* Same color as primary */
+    --destructive-foreground: #ffffff; /* White destructive text */
+
+    --border: #666666; /* Dark gray border */
+    --input: #444444; /* Dark gray input background */
+    --ring: #f44336; /* Red ring color */
+
+    /* Dark mode red color variables */
+    --red: #f44336; /* Base red color */
+    --red-foreground: #ffffff; /* White text on red background */
+
+    --red-muted: #660000; /* Darker muted red */
+    --red-muted-foreground: #ffcccc; /* Light red muted text */
+
+    --red-accent: #ff7961; /* Lighter red accent */
+    --red-accent-foreground: #ffffff; /* White text on red accent */
+  }
+
+  /* styles.css */
+  .collapsibleDropdown {
+    overflow: hidden;
+  }
+  .collapsibleDropdown[data-state='open'] {
+    animation: slideDown 200ms ease-out;
+  }
+  .collapsibleDropdown[data-state='closed'] {
+    animation: slideUp 200ms ease-out;
+  }
+
+  @keyframes slideDown {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-collapsible-content-height);
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      height: var(--radix-collapsible-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply min-h-svh w-full bg-background text-foreground;
+  }
+  body > #root {
+    @apply h-svh;
+  }
+}
+
+@layer utilities {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .faded-bottom {
+    @apply after:pointer-events-none after:absolute after:bottom-0 after:left-0 after:hidden after:h-32 after:w-full after:bg-[linear-gradient(180deg,_transparent_10%,_hsl(var(--background))_70%)] after:md:block;
+  }
+}
