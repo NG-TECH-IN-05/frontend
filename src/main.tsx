@@ -1,20 +1,16 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import { RouterProvider } from 'react-router-dom'
-import { Toaster } from '@/components/ui/toaster'
-import { ThemeProvider } from '@/components/theme-provider'
-import router from '@/router'
-import '@/css/blue.css'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { BrowserRouter as Router } from 'react-router-dom';
+import App from './App';
+import './css/style.css';
+import './css/satoshi.css';
+import 'jsvectormap/dist/css/jsvectormap.css';
+import 'flatpickr/dist/flatpickr.min.css';
 
-import { store } from '@/store/store'
-import { Provider } from 'react-redux'
-ReactDOM.createRoot(document.getElementById('root')!).render(
+ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <Provider store={store}>
-      <ThemeProvider defaultTheme='light' storageKey='vite-ui-theme'>
-        <RouterProvider router={router} />
-        <Toaster />
-      </ThemeProvider>
-    </Provider>
-  </React.StrictMode>
-)
+    <Router>
+      <App />
+    </Router>
+  </React.StrictMode>,
+);
